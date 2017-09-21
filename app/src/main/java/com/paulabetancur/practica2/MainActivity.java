@@ -7,12 +7,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.facebook.login.LoginManager;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 public class MainActivity extends AppCompatActivity {
 
 
 private String correoR, contrasenaR;
     private String correo, contrasena;
+    private int optlog;
+    GoogleApiClient mGoogleApiClient;
 
 
     @Override
@@ -24,13 +30,25 @@ private String correoR, contrasenaR;
             case R.id.mPerfil:
                 break;
             case R.id.mCerrar:
-                LoginManager.getInstance().logOut();
-                intent = new Intent(MainActivity.this, LoginActivity.class);
-                intent.putExtra("correo", correoR);
-                intent.putExtra("contrasena", contrasenaR);
-                startActivity(intent);
-                finish();
-                break;
+
+                if (optlog==1){
+                    LoginManager.getInstance().logOut();
+                } else if(optlog==2){
+                    Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                            new ResultCallback<Status>() {
+                                @Override
+                                public void onResult(Status status) {
+                                    // ...
+                                }
+                            });
+                } else if(optlog==3){
+                    intent = new Intent(MainActivity.this, LoginActivity.class);
+                    intent.putExtra("correo", correoR);
+                    intent.putExtra("contrasena", contrasenaR);
+                    startActivity(intent);
+                    finish();
+                    break;
+                }
         }
         return super.onOptionsItemSelected(item);
     }

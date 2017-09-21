@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "841670053003",
+    "project_id": "firebase-practica2"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841670053003:android:4516d5744e602a1e",
+        "android_client_info": {
+          "package_name": "com.paulabetancur.practica2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841670053003-jupjodb441d7rivqtm2hgm97rqhtvj79.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "841670053003-3ek6kemtkuc2th7vrmvgt801sp5ekb23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paulabetancur.practica2",
+            "certificate_hash": "86bbd1f201cfcbb9f4ff89212ca5ee0f9e0595b8"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4P07riaEcohVN9GlBzvBQ1CXDy6UtslY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

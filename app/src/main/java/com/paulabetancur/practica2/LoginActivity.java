@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.nfc.Tag;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -17,6 +19,13 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
     private EditText eCorreo, eContrasena;
     private String Correo, Contrasena;
+    private int RC_SIGN_IN = 5678;
+    private int optlog;
+
+    GoogleApiClient mGoogleApiClient;
 
 
     @Override
@@ -41,8 +54,7 @@ public class LoginActivity extends AppCompatActivity {
 
         eCorreo = (EditText) findViewById(R.id.eCorreo);
         eContrasena = (EditText) findViewById(R.id.eContrasena);
-        loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions(Arrays.asList("email"));
+
 
 
 
@@ -53,6 +65,43 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
+        //Login con google
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .requestProfile()
+                .build();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* FragmentActivity */, new GoogleApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+                        Toast.makeText(getApplicationContext(), "Error en login", Toast.LENGTH_SHORT).show();
+                    }
+                })
+
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        signInButton.setSize(SignInButton.SIZE_STANDARD);
+
+        signInButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
+
+
+
+
+        //Login con facebook
+
+        loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setReadPermissions(Arrays.asList("email"));
 
         callbackManager = CallbackManager.Factory.create();
 
@@ -61,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(getApplicationContext(), "Login exitoso", Toast.LENGTH_SHORT).show();
                 goMainActivity();
+                optlog=1;
 
             }
 
@@ -98,6 +148,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    private void signIn() {
+        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
 
 
     private void goMainActivity() {
@@ -114,6 +168,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Correo = eCorreo.getText().toString();
         Contrasena = eContrasena.getText().toString();
+        optlog=3;
 
         if(Correo.equals(correoR) && Contrasena.equals(contrasenaR)){
             goMainActivity();
@@ -129,16 +184,35 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == 1234 && resultCode == RESULT_OK){
+        if (requestCode == 1234 && resultCode == RESULT_OK) { //Registro
             correoR = data.getExtras().getString("correo");
             contrasenaR = data.getExtras().getString("contrasena");
             Log.d("correo", correoR);
             Log.d("contrasena", contrasenaR);
 
-        } else {
+        } else if (requestCode == RC_SIGN_IN) { //google
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleSignInResult(result);
+
+        } else { //Login con facebook
             callbackManager.onActivityResult(requestCode, resultCode, data);
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void handleSignInResult(GoogleSignInResult result) {
+        Log.d("google", "handleSignInResult:" + result.isSuccess());
+        if (result.isSuccess()) {
+            optlog=2;
+            // Signed in successfully, show authenticated UI.
+            GoogleSignInAccount acct = result.getSignInAccount();
+            Log.d("nombre de usuario: ", acct.getDisplayName());
+            Toast.makeText(getApplicationContext(), "Login exitoso", Toast.LENGTH_SHORT).show();
+            goMainActivity();
+        } else {
+            // Signed out, show unauthenticated UI.
+            Toast.makeText(this, "Error en login", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void registrese(View view) {
