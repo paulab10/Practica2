@@ -33,6 +33,9 @@ private String correoR, contrasenaR;
 
                 if (optlog==1){
                     LoginManager.getInstance().logOut();
+                   intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else if(optlog==2){
                     Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                             new ResultCallback<Status>() {
@@ -68,6 +71,7 @@ private String correoR, contrasenaR;
        Bundle extras = getIntent().getExtras();
        correoR = extras.getString("correo");
        contrasenaR = extras.getString("contrasena");
+       optlog = extras.getInt("optlog");
     }
 
     public void cargarp(MenuItem item) {
