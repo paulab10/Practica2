@@ -9,13 +9,20 @@
     tools:context="com.paulabetancur.practica2.LoginActivity">
 
 
-
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:src="@drawable/dona"
-        />
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="400px"
+            android:layout_height="400px"
+            android:src="@drawable/ic_account_circle_black_48dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="69dp" />
+    </RelativeLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,6 +37,7 @@
             android:layout_weight="1"
             android:hint="@string/correo"
             android:id="@+id/eCorreo"
+            android:inputType="textEmailAddress"
             />
 
         <EditText
@@ -37,6 +45,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:hint="Contraseña"
+            android:inputType="textPassword"
             android:id="@+id/eContrasena"
             />
 
@@ -45,6 +54,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:hint="Repetir contraseña"
+            android:inputType="textPassword"
             android:id="@+id/eRepcontrasena"
             />
 
@@ -57,7 +67,10 @@
                 android:layout_height="wrap_content"
                 android:text="Registrar"
                 android:onClick="registrar"
-                android:background="@color/pink"
+                android:background="@color/colorPrimary"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_gravity="center_vertical"
                 />
 
         </LinearLayout>

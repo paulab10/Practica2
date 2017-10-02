@@ -1,29 +1,42 @@
 package com.paulabetancur.practica2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.regex.Pattern;
 
 public class RegistroActivity extends AppCompatActivity {
 
 
     private String correo, contrasena, contrasenaR;
     EditText eCorreo, eContrasena, eRepcontrasena;
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+        prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
 
 
         eCorreo = (EditText) findViewById(R.id.eCorreo);
         eContrasena = (EditText) findViewById(R.id.eContrasena);
         eRepcontrasena = (EditText) findViewById(R.id.eRepcontrasena);
 
+    }
+
+    private boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
     }
 
     public void registrar(View view) {
@@ -40,14 +53,21 @@ public class RegistroActivity extends AppCompatActivity {
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
         }
 
-        else {
-            Intent intent = new Intent();
-            intent.putExtra("correo", correo);
-            intent.putExtra("contrasena", contrasena);
-            setResult(RESULT_OK, intent);
+        else if (!validarEmail(correo)) {
+
+            Toast.makeText(this, "Email no válido", Toast.LENGTH_SHORT).show();
+
+        }else{
+
+            prefs.edit().putString("correo", correo).apply();
+            prefs.edit().putString("contrasena", contrasena).apply();
+            setResult(RESULT_OK);
             finish();
         }
 
 
     }
 }
+
+
+

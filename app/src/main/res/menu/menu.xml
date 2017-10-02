@@ -6,5 +6,5 @@
             android:onClick="cargarp"/>
 
     <item android:id="@+id/mCerrar"
-        android:title="@string/mCerrar"/>
+        android:title="Cerrar sesión"/>
 </menu>
