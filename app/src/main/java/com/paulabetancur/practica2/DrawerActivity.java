@@ -181,7 +181,9 @@ public class DrawerActivity extends AppCompatActivity {
                             case R.id.filter:
                                 fullLayout.closeDrawer(GravityCompat.START);
                                 if (!item.isChecked()) {
-
+                                    intent = new Intent(DrawerActivity.this, FilterActivity.class);
+                                    handler.postDelayed(delay, 150);
+                                    item.setChecked(true);
                                 }
                                 break;
                             case R.id.profile:

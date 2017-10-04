@@ -21,7 +21,7 @@ public class TabFragment extends Fragment {
     private String nameTab2 = "Ubicación";
     private String nameTab3 = " Presupuesto";
     private String nameTab4 = "Cover ";
-    private String nameTab5 = "Alguna cosa ";
+    private String nameTab5 = "Otra cosa ";
 
     private String option;
     private int numberTabs = 0;
