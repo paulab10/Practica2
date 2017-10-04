@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class VistasActivity extends AppCompatActivity {
+public class Vistas2Activity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -39,7 +39,7 @@ public class VistasActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vistas);
+        setContentView(R.layout.activity_vistas2);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,7 +69,7 @@ public class VistasActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_vistas, menu);
+        getMenuInflater().inflate(R.menu.menu_vistas2, menu);
         return true;
     }
 
@@ -116,7 +116,7 @@ public class VistasActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_vistas, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_vistas2, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
@@ -137,13 +137,13 @@ public class VistasActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
 
             switch (position){
-                case 0: return new InfoFragment();
-                case 1: return new FiltroFragment();
+                case 0: return new UnoFragment();
+                case 1: return new DosFragment();
                 default: return null;
             }
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-
+            //return PlaceholderFragment.newInstance(position + 1);
         }
 
         @Override
