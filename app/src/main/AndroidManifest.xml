@@ -16,46 +16,23 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".DrawerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RegistroActivity" />
         <activity android:name=".PerfilActivity" />
-        <activity android:name=".BaseActivity" />
-        <activity
-            android:name=".VistasActivity"
-            android:label="@string/title_activity_vistas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".BBaseActivity"
-            android:label="@string/title_activity_bbase"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Vistas2Activity"
-            android:label="@string/title_activity_vistas2"
+        <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
         </activity>
     </application>
 
