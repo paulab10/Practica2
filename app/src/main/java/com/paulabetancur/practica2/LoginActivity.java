@@ -201,7 +201,11 @@ public class LoginActivity extends AppCompatActivity {
         Contrasena = eContrasena.getText().toString();
         optlog = 3;
 
-        if(Correo.equals(correoR) && Contrasena.equals(contrasenaR)){
+
+        if(Correo.equals("") && Contrasena.equals("")){
+            Toast.makeText(this, "Ingrese datos", Toast.LENGTH_SHORT).show();
+
+        } else if (Correo.equals(correoR) && Contrasena.equals(contrasenaR)){
             goMainActivity();
         } else {
             Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();

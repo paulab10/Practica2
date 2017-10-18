@@ -6,17 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.paulabetancur.practica2.PerfilActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+    tools:context="com.paulabetancur.practica2.PerfilActivity"
+    android:layout_marginTop="?actionBarSize">
 
         <ImageView
-            android:layout_width="500px"
-            android:layout_height="500px"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:src="@drawable/ic_account_circle_black_48dp"
@@ -32,14 +27,6 @@
             android:textAlignment="center"
             android:text="Usuario"
             android:textColor="@color/colorPrimary"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="0dp"
-        android:layout_weight="1">
 
         <TextView
             android:layout_width="match_parent"
@@ -50,6 +37,7 @@
             android:textSize="20sp"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="16dp"
             />
 
         <TextView
@@ -61,10 +49,5 @@
             android:textSize="20sp"
             android:layout_marginLeft="16dp"
             />
-
-    </LinearLayout>
-
-
-
 
 </LinearLayout>

@@ -18,9 +18,6 @@ import com.paulabetancur.practica2.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by humor on 05/05/2017.
- */
 
 public class FilterListFragment extends ListFragment implements AdapterView.OnItemClickListener{
     protected int posit;

@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +31,7 @@ import org.w3c.dom.Text;
 import static android.R.attr.data;
 import static com.paulabetancur.practica2.R.id.profileImg;
 
-public class PerfilActivity extends AppCompatActivity {
+public class PerfilActivity extends DrawerActivity {
 
     //private String correo, contrasena;
     private String correoR, contrasenaR, personEmail, personId, personName;
@@ -52,7 +53,7 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-        setTitle("Mi Perfil"); //Set Title of activity
+        getSupportActionBar().setTitle("Mi Perfil"); //Set Title of activity
         prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         editor = prefs.edit();
         optlog = prefs.getInt("optlog", 0);
@@ -86,7 +87,6 @@ public class PerfilActivity extends AppCompatActivity {
 
 
 
-
         if (optlog == 1){ //Facebook
 
 
@@ -111,71 +111,11 @@ public class PerfilActivity extends AppCompatActivity {
             tNombre.setText(prefs.getString("correo", ""));   // User name
             tContrasena.setText(prefs.getString("contrasena", ""));  // User email
         }
+        SubMenu subMenu = navigationView.getMenu().getItem(3).getSubMenu();
+        MenuItem menuItem = subMenu.getItem(0);
+        menuItem.setChecked(true);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menup, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id= item.getItemId();
-        Intent intent;
-        switch (id){
-            case R.id.mPrincipal:
-                intent = new Intent(PerfilActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-
-                break;
-            case R.id.mCerrarp:
-
-
-                editor.putString(LoginActivity.TAG_NAME, "");
-                editor.putString(LoginActivity.TAG_EMAIL, "");
-                editor.putString(LoginActivity.TAG_URLIMG, "");
-                editor.apply();
-
-                //prefs.edit().clear().apply();
-                if (optlog == 1){ //Facebook
-                    LoginManager.getInstance().logOut();
-                    optlog = 0;
-                    editor.putInt("optlog", 0).commit();
-
-                    intent = new Intent(PerfilActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-
-                } else if(optlog == 2){ //Google
-                    optlog = 0;
-                    editor.putInt("optlog", 0).commit();
-
-                    Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                            new ResultCallback<Status>() {
-                                @Override
-                                public void onResult(Status status) {
-                                    // ...
-                                }
-                            });
-
-                    intent = new Intent(PerfilActivity.this, LoginActivity.class);
-                    Toast.makeText(this, "Cerró sesión", Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
-                    finish();
-
-                } else if(optlog == 3){ //Cuenta usuario
-                    optlog = 0;
-                    editor.putInt("optlog", 0).commit();
-                    intent = new Intent(PerfilActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 
 }
