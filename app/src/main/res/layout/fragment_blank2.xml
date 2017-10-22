@@ -2,13 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/city"
     tools:context="com.paulabetancur.practica2.Fragments.Blank2Fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        android:text="Ojalá este funcione" />
+        android:text="¡Aún no hay discotecas nuevas! "
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
 
 </FrameLayout>

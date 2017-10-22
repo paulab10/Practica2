@@ -2,13 +2,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/city"
     tools:context="com.paulabetancur.practica2.Fragments.BlankFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        android:text="Hola, soy un fragmento que si esta funcionando" />
+        android:orientation="vertical"
+        android:weightSum="8">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:text="Discotecas que deberias visitar"
+            android:textSize="23sp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:text="Este es el top semanal de discotecas según nuestros usuarios."
+            android:textSize="17sp"
+            android:layout_marginLeft="10dp"
+            android:gravity="clip_horizontal"/>
+        <Button
+            android:layout_width="280dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="1. Bendito seas"
+            />
+        <Button
+            android:layout_width="280dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="2. El divino"/>
+        <Button
+            android:layout_width="280dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="3. La morena"/>
+
+    </LinearLayout>
+
 
 </FrameLayout>

@@ -42,19 +42,19 @@ public class MapsActivity extends DrawerActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    //mTextMessage.setText(R.string.title_home);
                     ft = fm.beginTransaction();
                     BlankFragment fragment = new BlankFragment();
                     ft.replace(R.id.content, fragment).commit();
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    //mTextMessage.setText(R.string.title_dashboard);
                     ft = fm.beginTransaction();
                     Blank2Fragment fragment1 = new Blank2Fragment();
                     ft.replace(R.id.content, fragment1).commit();
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                    //mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
             return false;

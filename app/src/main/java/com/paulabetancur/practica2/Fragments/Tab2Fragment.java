@@ -17,8 +17,8 @@ import com.paulabetancur.practica2.R;
 public class Tab2Fragment extends Fragment {
 
     private String title;
-    private String nameTab1 = "Algo";
-    private String nameTab2 = "Otro algo";
+    private String nameTab1 = "Top semanal";
+    private String nameTab2 = "Nuevas";
 
 
     private String option;
