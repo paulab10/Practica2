@@ -5,15 +5,15 @@
         <item
             android:id="@+id/home"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="Home" />
+            android:title="Inicio" />
         <item
             android:id="@+id/maps"
             android:icon="@drawable/ic_place_black_24px"
-            android:title="Maps" />
+            android:title="Mapa" />
         <item
             android:id="@+id/filter"
             android:icon="@drawable/ic_filter_list_black_24px"
-            android:title="filter" />
+            android:title="Filtros" />
    <!--     <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
@@ -25,11 +25,11 @@
             <item
                 android:id="@+id/profile"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Profile" />
+                android:title="Mi Perfil" />
             <item
                 android:id="@+id/logout"
                 android:icon="@drawable/ic_logout"
-                android:title="LogOut" />
+                android:title="Cerrar Sesión" />
         </menu>
     </item>
 

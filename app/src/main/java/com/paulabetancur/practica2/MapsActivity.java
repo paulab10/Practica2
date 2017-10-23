@@ -12,6 +12,9 @@ import android.widget.TextView;
 import com.paulabetancur.practica2.Fragments.Blank2Fragment;
 import com.paulabetancur.practica2.Fragments.BlankFragment;
 import com.paulabetancur.practica2.Fragments.FilterListFragment;
+import com.paulabetancur.practica2.Fragments.ListaFragment;
+import com.paulabetancur.practica2.Fragments.MapaFragment;
+import com.paulabetancur.practica2.Fragments.RecomendadasFragment;
 import com.paulabetancur.practica2.Fragments.TabFragment;
 
 public class MapsActivity extends DrawerActivity {
@@ -44,17 +47,19 @@ public class MapsActivity extends DrawerActivity {
                 case R.id.navigation_home:
                     //mTextMessage.setText(R.string.title_home);
                     ft = fm.beginTransaction();
-                    BlankFragment fragment = new BlankFragment();
+                    MapaFragment fragment = new MapaFragment();
                     ft.replace(R.id.content, fragment).commit();
                     return true;
                 case R.id.navigation_dashboard:
                     //mTextMessage.setText(R.string.title_dashboard);
                     ft = fm.beginTransaction();
-                    Blank2Fragment fragment1 = new Blank2Fragment();
+                    ListaFragment fragment1 = new ListaFragment();
                     ft.replace(R.id.content, fragment1).commit();
                     return true;
                 case R.id.navigation_notifications:
-                    //mTextMessage.setText(R.string.title_notifications);
+                    ft = fm.beginTransaction();
+                    RecomendadasFragment fragment2 = new RecomendadasFragment();
+                    ft.replace(R.id.content, fragment2).commit();
                     return true;
             }
             return false;
