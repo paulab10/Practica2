@@ -20,13 +20,13 @@ import java.util.ArrayList;
 
 
 public class FilterListFragment extends ListFragment implements AdapterView.OnItemClickListener{
-    protected int posit;
+    protected int posit = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_fragment, container, false);
-        //posit = getArguments().getInt("position");
+        posit = getArguments().getInt("position");
         ((DrawerActivity) getActivity()).getSupportActionBar().setTitle("Filtro");
         return view;
     }
@@ -37,10 +37,39 @@ public class FilterListFragment extends ListFragment implements AdapterView.OnIt
         ArrayList<CustomList> list = new ArrayList<>();
         switch(posit){
             case 0:
-                list = CustomList.addItem(R.drawable.ic_menu_gallery, R.drawable.ic_menu_send, "Primer elemento", "Detalle");
+                list = CustomList.addItem(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send, "Crossover","");
+                list.add(new CustomList(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,
+                        "Vallenato", ""));
+                list.add(new CustomList(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,
+                        "Salsa", ""));
+                list.add(new CustomList(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,
+                        "Merengue", ""));
+                list.add(new CustomList(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,
+                        "Bachata", ""));
+                list.add(new CustomList(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,
+                        "Reggaeton", ""));
+                list.add(new CustomList(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,
+                        "Reggae", ""));
+                list.add(new CustomList(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,
+                        "Rock", ""));
                 break;
             case 1:
-                //list = CustomList.COOTRANSBLAN(getActivity());
+                list = CustomList.addItem(R.drawable.ic_place_black_24px, R.drawable.ic_menu_send, "La 70","");
+                list.add(new CustomList(R.drawable.ic_place_black_24px, R.drawable.ic_menu_send,
+                        "La 33", ""));
+                list.add(new CustomList(R.drawable.ic_place_black_24px, R.drawable.ic_menu_send,
+                        "El Poblado", ""));
+                break;
+            case 2:
+                list = CustomList.addItem(R.drawable.ic_attach_money_black_24px, R.drawable.ic_menu_send, "$","");
+                list.add(new CustomList(R.drawable.ic_attach_money_black_24px, R.drawable.ic_menu_send,
+                        "$$", ""));
+                list.add(new CustomList(R.drawable.ic_attach_money_black_24px, R.drawable.ic_menu_send,
+                        "$$$", ""));
+                list.add(new CustomList(R.drawable.ic_attach_money_black_24px, R.drawable.ic_menu_send,
+                        "$$$$", ""));
+                list.add(new CustomList(R.drawable.ic_attach_money_black_24px, R.drawable.ic_menu_send,
+                        "$$$$$", ""));
                 break;
         }
 

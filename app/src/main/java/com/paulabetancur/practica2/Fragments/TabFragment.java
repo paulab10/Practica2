@@ -20,8 +20,8 @@ public class TabFragment extends Fragment {
     private String nameTab1 = "Música";
     private String nameTab2 = "Ubicación";
     private String nameTab3 = " Presupuesto";
-    private String nameTab4 = "Cover ";
-    private String nameTab5 = "Otra cos";
+    //private String nameTab4 = "Cover ";
+    //private String nameTab5 = "Otra cos";
 
     private String option;
     private int numberTabs = 0;
@@ -72,9 +72,9 @@ public class TabFragment extends Fragment {
          *  initiated
          */
         //option = getArguments().getString("option");
-        numberTabs = 5;
-        zonesList = new ListFragment[5];
-        for(int i = 0; i < 5; i++){
+        numberTabs = 3;
+        zonesList = new ListFragment[3];
+        for(int i = 0; i < 3; i++){
             Bundle arg= new Bundle();
             arg.putInt("position", i);
             zonesList[i] = new FilterListFragment();
@@ -134,7 +134,7 @@ public class TabFragment extends Fragment {
         @Override
         public int getCount() {
             // Show 5 total pages.
-            return 5;
+            return 3;
         }
 
         @Override
@@ -146,22 +146,17 @@ public class TabFragment extends Fragment {
                     return nameTab2;
                 case 2:
                     return nameTab3;
-                case 3:
-                    return nameTab4;
-                case 4:
-                    return nameTab5;
             }
             return null;
         }
     }
 
     /** Method to set names to all string variables **/
-    private void setStringNames(String _title, String _nameTab1, String _nameTab2, String _nameTab3, String _nameTab4, String _nameTab5){
+    private void setStringNames(String _title, String _nameTab1, String _nameTab2, String _nameTab3){
         title = _title;
         nameTab1 = _nameTab1;
         nameTab2 = _nameTab2;
         nameTab3 = _nameTab3;
-        nameTab4 = _nameTab4;
-        nameTab5 = _nameTab5;
+
     }
 }

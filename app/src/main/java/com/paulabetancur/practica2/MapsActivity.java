@@ -28,7 +28,11 @@ public class MapsActivity extends DrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
+        // Para que me salga el fragmento apenas salga
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        MapaFragment fragment = new MapaFragment();
+        ft.add(R.id.content, fragment).commit();
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
