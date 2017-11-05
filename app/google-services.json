@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "841670053003",
-    "project_id": "firebase-practica2"
+    "firebase_url": "https://fir-practica2.firebaseio.com",
+    "project_id": "firebase-practica2",
+    "storage_bucket": "firebase-practica2.appspot.com"
   },
   "client": [
     {
@@ -12,6 +14,26 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "841670053003-mundo4kljj0i499h4daae7efbd4j04qn.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "841670053003-63b7q6m4phsu3gaf73nglqvqadlbaos4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paulabetancur.practica2",
+            "certificate_hash": "f37f47eb4fc3b1b6e28a81fc6deaa78b4787359f"
+          }
+        },
+        {
+          "client_id": "841670053003-eg0sso4fd3uevm06qs3jnts2esom4ked.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paulabetancur.practica2",
+            "certificate_hash": "145be9c78c09b9460eaeeec38207bc38ec002526"
+          }
+        },
         {
           "client_id": "841670053003-jupjodb441d7rivqtm2hgm97rqhtvj79.apps.googleusercontent.com",
           "client_type": 3
@@ -35,11 +57,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841670053003-mundo4kljj0i499h4daae7efbd4j04qn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

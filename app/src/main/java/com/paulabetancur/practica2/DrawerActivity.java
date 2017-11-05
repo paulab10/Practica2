@@ -337,6 +337,8 @@ public class DrawerActivity extends AppCompatActivity {
         return intent;
     }
 
+
+
     /*
     @Override
     public void signOutRevokeAccess() {

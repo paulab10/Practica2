@@ -37,7 +37,8 @@ public class FilterListFragment extends ListFragment implements AdapterView.OnIt
         ArrayList<CustomList> list = new ArrayList<>();
         switch(posit){
             case 0:
-                list = CustomList.addItem(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send, "Crossover","");
+                list = CustomList.addItem(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,
+                        "Crossover","");
                 list.add(new CustomList(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,
                         "Vallenato", ""));
                 list.add(new CustomList(R.drawable.ic_music_note_black_24px, R.drawable.ic_menu_send,

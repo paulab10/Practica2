@@ -31,6 +31,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import android.widget.EditText;
 import android.widget.Toast;
@@ -63,6 +65,9 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
 
+    DatabaseReference myRef;
+    FirebaseDatabase database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,11 @@ public class LoginActivity extends AppCompatActivity {
         eCorreo = (EditText) findViewById(R.id.eCorreo);
         eContrasena = (EditText) findViewById(R.id.eContrasena);
         prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+
+        myRef.setValue("Hello, World!");
 
 
 

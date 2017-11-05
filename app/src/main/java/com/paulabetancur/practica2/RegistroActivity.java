@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+
 import java.util.regex.Pattern;
 
 public class RegistroActivity extends AppCompatActivity {
@@ -19,6 +21,8 @@ public class RegistroActivity extends AppCompatActivity {
     EditText eCorreo, eContrasena, eRepcontrasena;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
+
+
 
 
     @Override
@@ -31,6 +35,8 @@ public class RegistroActivity extends AppCompatActivity {
         eCorreo = (EditText) findViewById(R.id.eCorreo);
         eContrasena = (EditText) findViewById(R.id.eContrasena);
         eRepcontrasena = (EditText) findViewById(R.id.eRepcontrasena);
+
+
 
     }
 
