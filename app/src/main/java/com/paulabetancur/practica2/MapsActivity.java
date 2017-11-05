@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.paulabetancur.practica2.Fragments.Blank2Fragment;
+
 import com.paulabetancur.practica2.Fragments.BlankFragment;
 import com.paulabetancur.practica2.Fragments.FilterListFragment;
 import com.paulabetancur.practica2.Fragments.ListaFragment;

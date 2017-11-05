@@ -50,7 +50,7 @@ public class Tab2Fragment extends Fragment {
         zonesList = new Fragment[2];
 
         zonesList[0] = new BlankFragment();
-        zonesList[1] = new Blank2Fragment();
+        zonesList[1] = new BlankFragment();
 
         /**
          *Set an Apater for the View Pager
