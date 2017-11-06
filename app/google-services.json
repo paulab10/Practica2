@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "841670053003-psht9c44nl71ecdh5on4h5qipn2oh93r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paulabetancur.practica2",
+            "certificate_hash": "50abfd06a26a91b0879c8abc0440a1d77e4d5f43"
+          }
+        },
+        {
           "client_id": "841670053003-mundo4kljj0i499h4daae7efbd4j04qn.apps.googleusercontent.com",
           "client_type": 3
         },

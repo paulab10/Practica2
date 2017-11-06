@@ -46,47 +46,17 @@ public class MainActivity extends DrawerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Inicio");
-        prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        editor = prefs.edit();
-        optlog = prefs.getInt("optlog",0);
 
         if (findViewById(R.id.containerView) != null){
-
             Fragment fragment = new Tab2Fragment();
 
             getSupportFragmentManager().beginTransaction().
                     add(R.id.containerView, fragment).commit();
         }
 
-
-
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .requestProfile()
-                .build();
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
-                    @Override
-                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-                        Toast.makeText(getApplicationContext(), "Error en login", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-
         MenuItem item = navigationView.getMenu().getItem(0);
         item.setChecked(true);
     }
 
-
-
-    public void cargarp(MenuItem item) {
-        Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
-        startActivity(intent);
-        finish();
-    }
 }
 

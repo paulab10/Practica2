@@ -30,20 +30,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RegistroActivity" />
         <activity
-            android:name=".PerfilActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".FilterActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".MapsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-
     </application>
 
 </manifest>
