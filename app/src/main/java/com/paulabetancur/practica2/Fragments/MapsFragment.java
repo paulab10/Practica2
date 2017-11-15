@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.paulabetancur.practica2.R;
 
 /**
@@ -37,10 +39,11 @@ public class MapsFragment extends Fragment {
 
         fm = getFragmentManager();
         ft = fm.beginTransaction();
-        MapaFragment fragment = new MapaFragment();
+        ListaFragment fragment = new ListaFragment();
         ft.add(R.id.content, fragment).commit();
 
         BottomNavigationView navigation = (BottomNavigationView) view.findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_dashboard);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
@@ -58,14 +61,11 @@ public class MapsFragment extends Fragment {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     //mTextMessage.setText(R.string.title_home);
-                    fragment = new MapaFragment();
+                    fragment = new MapFragment();
                     break;
                 case R.id.navigation_dashboard:
                     //mTextMessage.setText(R.string.title_dashboard);
                     fragment = new ListaFragment();
-                    break;
-                case R.id.navigation_notifications:
-                    fragment = new RecomendadasFragment();
                     break;
             }
             if(fragment!=null){

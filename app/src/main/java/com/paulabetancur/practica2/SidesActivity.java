@@ -18,8 +18,13 @@ import java.util.ArrayList;
 
 public class SidesActivity extends AppCompatActivity {
 
+    String[] music = {
+            "crossover",
+            "bachata"
+    };
 
     ArrayList<SideItems> list = new ArrayList<>();
+    ArrayList<String> musicCategory = new ArrayList<>();
     FirebaseDatabase database;
     DatabaseReference myRef;
     RecyclerView recyclerView;
@@ -32,6 +37,7 @@ public class SidesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sides);
+
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Discotecas");
         var = getIntent().getIntExtra("filter",-1);
@@ -71,13 +77,13 @@ public class SidesActivity extends AppCompatActivity {
                 case 1:
                     switch (pos){
                         case 0:
-                            nfilter = "la 70";
+                            nfilter = "70";
                             break;
                         case 1:
-                            nfilter = "la 33";
+                            nfilter = "33";
                             break;
                         case 2:
-                            nfilter = "el poblado";
+                            nfilter = "poblado";
                             break;
                     }
                     break;
@@ -124,7 +130,14 @@ public class SidesActivity extends AppCompatActivity {
                                 list.add(new SideItems(postSnapshot.child("URL").getValue().toString(),postSnapshot.getKey(),postSnapshot.child("direccion").getValue().toString(),
                                         postSnapshot.child("telefono").getValue().toString(),postSnapshot.child("musica").getValue().toString(),postSnapshot.child("presupuesto").getValue().toString()));
                             }
-                        } else if (var == 2){
+
+                        } else if(var == 1){
+                            ndb = postSnapshot.child("lugar").getValue().toString().toLowerCase();
+                            if(ndb.contains(nfilter)) {
+                                list.add(new SideItems(postSnapshot.child("URL").getValue().toString(), postSnapshot.getKey(), postSnapshot.child("direccion").getValue().toString(),
+                                        postSnapshot.child("telefono").getValue().toString(), postSnapshot.child("musica").getValue().toString(), postSnapshot.child("presupuesto").getValue().toString()));
+                            }
+                        }else if (var == 2){
                             ndb = postSnapshot.child("presupuesto").getValue().toString().toLowerCase();
                             if(ndb.equals(nfilter)){
                                 list.add(new SideItems(postSnapshot.child("URL").getValue().toString(),postSnapshot.getKey(),postSnapshot.child("direccion").getValue().toString(),

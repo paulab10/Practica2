@@ -216,6 +216,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+
         super.onActivityResult(requestCode, resultCode, data);
         if(optlog != 1){
             //Login facebook
@@ -258,5 +259,31 @@ public class LoginActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    public void registrese(View view) {
+        Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
+        startActivityForResult(intent, 1234);
+        Toast.makeText(LoginActivity.this,"ojalá funcione", Toast.LENGTH_SHORT).show();
+    }
+
+    public void iniciar(View view) {
+
+        correoR = prefs.getString("correo", "");
+        contrasenaR = prefs.getString("contrasena", "");
+
+        Correo = eCorreo.getText().toString();
+        Contrasena = eContrasena.getText().toString();
+        optlog = 3;
+
+
+        if(Correo.equals("") && Contrasena.equals("")){
+            Toast.makeText(this, "Ingrese datos", Toast.LENGTH_SHORT).show();
+
+        } else if (Correo.equals(correoR) && Contrasena.equals(contrasenaR)){
+            goMainActivity();
+        } else {
+            Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+        }
     }
 }
