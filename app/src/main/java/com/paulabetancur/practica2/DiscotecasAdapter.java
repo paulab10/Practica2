@@ -13,57 +13,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-
-class SideItems
-{
-
-    private String image;
-    private String name;
-    private String dir;
-    private String price;
-    private String music;
-    private String tel;
-
-
-
-    SideItems(String image, String name,String dir,String tel,String music,String price)
-    {
-        this.name = name;
-        this.image = image;
-        this.music = music;
-        this.dir = dir;
-        this.price = price;
-        this.tel = tel;
-
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDir() {
-        return dir;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public String getMusic() {
-        return music;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-}
-
-class SideItemsAdapter extends RecyclerView.Adapter<SideItemsAdapter.SideItemsViewHolder> {
-    private List<SideItems> items;
+public class DiscotecasAdapter extends RecyclerView.Adapter<DiscotecasAdapter.SideItemsViewHolder> {
+    private List<Discotecas> items;
 
     static class SideItemsViewHolder extends RecyclerView.ViewHolder {
         // Campos respectivos de un item
@@ -86,7 +37,7 @@ class SideItemsAdapter extends RecyclerView.Adapter<SideItemsAdapter.SideItemsVi
         }
     }
 
-    SideItemsAdapter(List<SideItems> items) {
+    DiscotecasAdapter(List<Discotecas> items) {
         this.items = items;
     }
 
@@ -98,7 +49,7 @@ class SideItemsAdapter extends RecyclerView.Adapter<SideItemsAdapter.SideItemsVi
     @Override
     public SideItemsViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_sides, viewGroup, false);
+                .inflate(R.layout.disco_details, viewGroup, false);
         return new SideItemsViewHolder(v);
     }
 

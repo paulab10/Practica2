@@ -205,7 +205,7 @@ public class DrawerActivity extends AppCompatActivity {
                             case R.id.filter:
                                 fullLayout.closeDrawer(GravityCompat.START);
                                 if (!item.isChecked()) {
-                                    getSupportActionBar().setTitle("Filtro");
+                                    getSupportActionBar().setTitle("Encuentra tu discoteca");
                                     TabFragment fragment = new TabFragment();
                                     getSupportFragmentManager().beginTransaction().replace(R.id.containerView, fragment).commit();
                                     item.setChecked(true);

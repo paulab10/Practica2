@@ -39,7 +39,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SidesActivity" />
+        <activity android:name=".DiscotecasListActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -53,8 +53,7 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name=".InfoActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            ></activity>
+            android:theme="@style/MyDialogTheme"/>
     </application>
 
 </manifest>

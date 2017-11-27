@@ -70,14 +70,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    if(postSnapshot.child("Lat").exists() && postSnapshot.child("Lng").exists() && postSnapshot.child("direccion").exists() && postSnapshot.child("telefono").exists() && postSnapshot.child("presupuesto").exists() && postSnapshot.child("musica").exists()) {
+                    if(postSnapshot.child("Lat").exists() && postSnapshot.child("Lng").exists() && postSnapshot.child("direccion").exists()
+                            && postSnapshot.child("telefono").exists() && postSnapshot.child("presupuesto").exists() && postSnapshot.child("musica").exists()) {
                         LatLng marker = new LatLng(Double.parseDouble(postSnapshot.child("Lat").getValue().toString()), Double.parseDouble(postSnapshot.child("Lng").getValue().toString()));
                         MarkerOptions mark = new MarkerOptions().position(marker).title(postSnapshot.getKey()).
-                                snippet("Nombre: " + postSnapshot.getKey()+
-                                        "\nDirección: " + postSnapshot.child("direccion").getValue().toString() +
-                                        "\nTeléfono: " + postSnapshot.child("telefono").getValue().toString() +
-                                        "\nMúsica: " + postSnapshot.child("musica").getValue().toString() +
-                                        "\nPresupuesto: " + postSnapshot.child("presupuesto").getValue().toString());
+                                snippet(postSnapshot.getKey()+
+                                        "\n" + postSnapshot.child("direccion").getValue().toString() +
+                                        "\n" + postSnapshot.child("telefono").getValue().toString() +
+                                        "\n" + postSnapshot.child("musica").getValue().toString() +
+                                        "\n" + postSnapshot.child("presupuesto").getValue().toString() +
+                                        "\n" + postSnapshot.child("URL").getValue().toString());
                         mMap.addMarker(mark);
 
                     }
@@ -95,8 +97,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             public void onInfoWindowClick(Marker marker) {
 
                 Intent intent = new Intent(getActivity(), InfoActivity.class);
+                intent.putExtra("marker_data", marker.getSnippet());
                 getActivity().startActivity(intent);
-                //Toast.makeText(getContext(),marker.getSnippet(),Toast.LENGTH_LONG).show();
+
             }
         });
 

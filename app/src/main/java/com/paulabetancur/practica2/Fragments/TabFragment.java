@@ -17,18 +17,14 @@ import com.paulabetancur.practica2.R;
 public class TabFragment extends Fragment {
 
     private String title;
-    private String nameTab1 = "Música";
-    private String nameTab2 = "Ubicación";
-    private String nameTab3 = " Presupuesto";
-    //private String nameTab4 = "Cover ";
-    //private String nameTab5 = "Otra cos";
+    private String nameTab1 = "Discotecas";
+    private String nameTab2 = "Filtrar";
 
-    private String option;
     private int numberTabs = 0;
 
-    private ListFragment[] zonesList;
+    private DiscotecasListFragment listDiscos;
+    private FilterFragment filterFragment;
 
-    private ListFragment temp;
     private Bundle arg;
 
     public static TabLayout tabLayout;
@@ -36,8 +32,6 @@ public class TabFragment extends Fragment {
      * The {@link ViewPager} that will host the section contents.
      */
     public static ViewPager viewPager;
-    public static int int_items = 3;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,34 +66,12 @@ public class TabFragment extends Fragment {
          *  initiated
          */
         //option = getArguments().getString("option");
-        numberTabs = 3;
-        zonesList = new ListFragment[3];
-        for(int i = 0; i < 3; i++){
-            Bundle arg= new Bundle();
-            arg.putInt("position", i);
-            zonesList[i] = new FilterListFragment();
-            zonesList[i].setArguments(arg);
-        }
-        /*if (option.equals("zone1")){
-            numberTabs = 5;
-            zonesList = new ListFragment[5];
-            for(int i = 0; i < 5; i++){
-                Bundle arg= new Bundle();
-                arg.putInt("position", i);
-                zonesList[i] = new FilterListFragment();
-                zonesList[i].setArguments(arg);
-            }
-            //setStringNames(getString(R.string.zone1),getString(R.string.company1_1), getString(R.string.company2_1),
-                    //getString(R.string.company3_1), getString(R.string.company4_1), getString(R.string.company5_1));
-            //numberTabs = 4;
-            for(int i = 0; i < 5; i++)
-                zonesList[i] = new Zone1ListFragment();
-        }*/
-
+        numberTabs = 2;
+        listDiscos = new DiscotecasListFragment();
+        filterFragment = new FilterFragment();
         return x;
 
     }
-
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -123,18 +95,19 @@ public class TabFragment extends Fragment {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            for(int i = 0; i < numberTabs; i++){
-                if (i == position){
-                    return zonesList[i];
-                }
+            switch (position){
+                case 0:
+                    return listDiscos;
+                case 1:
+                    return filterFragment;
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            // Show 5 total pages.
-            return 3;
+            // Show 2 total pages.
+            return 2;
         }
 
         @Override
@@ -144,8 +117,6 @@ public class TabFragment extends Fragment {
                     return nameTab1;
                 case 1:
                     return nameTab2;
-                case 2:
-                    return nameTab3;
             }
             return null;
         }
@@ -156,7 +127,6 @@ public class TabFragment extends Fragment {
         title = _title;
         nameTab1 = _nameTab1;
         nameTab2 = _nameTab2;
-        nameTab3 = _nameTab3;
-
+        //nameTab3 = _nameTab3;
     }
 }

@@ -38,4 +38,34 @@
     <string name="title_activity_sides">SidesActivity</string>
     <string name="title_activity_maps">Map</string>
 
+    <string-array name="musica">
+        <item>Crossover</item>
+        <item>Vallenato</item>
+        <item>Salsa</item>
+        <item>Merengue</item>
+        <item>Reggae</item>
+        <item>Rock</item>
+        <item>Cualquiera</item>
+
+    </string-array>
+    <string-array name="ubicacion">
+        <item>La 70</item>
+        <item>La 33</item>
+        <item>Poblado</item>
+        <item>Barrio Colombia</item>
+        <item>Cualquiera</item>
+
+
+    </string-array>
+    <string-array name="presupuesto">
+        <item>$</item>
+        <item>$$</item>
+        <item>$$$</item>
+        <item>$$$$</item>
+        <item>$$$$$</item>
+        <item>Cualquiera</item>
+
+
+    </string-array>
+
 </resources>

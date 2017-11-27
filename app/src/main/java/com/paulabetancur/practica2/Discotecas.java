@@ -1,82 +1,61 @@
 package com.paulabetancur.practica2;
 
-/**
- * Created by Paula on 18/10/2017.
- */
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class Discotecas {
+import java.util.List;
 
-    String URL, cover, direccion, musica, presupuesto, nombre;
-    int telefono;
-    private String uid;
 
-    public Discotecas() {
+public class Discotecas
+{
+    private String image;
+    private String name;
+    private String dir;
+    private String price;
+    private String music;
+    private String tel;
+
+    public Discotecas(String image, String name, String dir, String tel, String music, String price)
+    {
+        this.name = name;
+        this.image = image;
+        this.music = music;
+        this.dir = dir;
+        this.price = price;
+        this.tel = tel;
+
     }
 
-    public Discotecas(String url, String nombre, String cover, String direccion, String musica, String presupuesto, int telefono) {
-        this.URL = url;
-        this.cover = cover;
-        this.direccion = direccion;
-        this.musica = musica;
-        this.presupuesto = presupuesto;
-        this.telefono = telefono;
-        this.nombre = nombre;
-
+    public String getImage() {
+        return image;
     }
 
     public String getName() {
-        return URL;
+        return name;
     }
 
-    public void setName(String url) {
-        this.URL = url;
+    public String getDir() {
+        return dir;
     }
 
-    public String getCover() {
-        return cover;
+    public String getPrice() {
+        return price;
     }
 
-    public void setCover(String cover) {
-        this.cover = cover;
+    public String getMusic() {
+        return music;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getMusica() {
-        return musica;
-    }
-
-    public void setMusica(String musica) {
-        this.musica = musica;
-    }
-
-    public String getPresupuesto() {
-        return presupuesto;
-    }
-
-    public void setPresupuesto(String presupuesto ) {
-        this.presupuesto =  presupuesto;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre ) {
-        this.nombre =  nombre;
+    public String getTel() {
+        return tel;
     }
 }
+

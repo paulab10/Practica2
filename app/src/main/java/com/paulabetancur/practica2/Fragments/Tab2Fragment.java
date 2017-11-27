@@ -82,7 +82,7 @@ public class Tab2Fragment extends Fragment {
         for(int i = 0; i < 5; i++){
             Bundle arg= new Bundle();
             arg.putInt("position", i);
-            zonesList[i] = new FilterListFragment();
+            zonesList[i] = new FilterFragment();
             zonesList[i].setArguments(arg);
         }*/
 
@@ -93,7 +93,7 @@ public class Tab2Fragment extends Fragment {
             for(int i = 0; i < 5; i++){
                 Bundle arg= new Bundle();
                 arg.putInt("position", i);
-                zonesList[i] = new FilterListFragment();
+                zonesList[i] = new FilterFragment();
                 zonesList[i].setArguments(arg);
             }
             //setStringNames(getString(R.string.zone1),getString(R.string.company1_1), getString(R.string.company2_1),
