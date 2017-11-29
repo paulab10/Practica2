@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.2"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:textColor="@color/white"
             android:text="¿Aún no sabes que discoteca visitar?"
             android:textSize="23sp"
@@ -51,7 +51,10 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:background="@color/white"
-                    android:layout_margin="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="5dp"
                     android:elevation="5dp">
 
                     <ImageView
@@ -66,7 +69,8 @@
                         android:text="Nombre Disco"
                         android:gravity="center_vertical"
                         android:paddingLeft="16dp"
-                        android:textColor="@color/colorPrimaryDark"/>
+                        android:textColor="@color/colorPrimaryDark"
+                        android:id="@+id/tSemana1"/>
                     <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
                         android:id="@+id/rating_bar_0"
@@ -78,7 +82,7 @@
 
                         android:gravity="center_vertical"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginBottom="10dp"/>
+                        />
 
                 </LinearLayout>
                 <LinearLayout
@@ -86,7 +90,10 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:layout_margin="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="5dp"
                     android:background="@color/white"
                     android:elevation="5dp">
                     <ImageView
@@ -101,7 +108,8 @@
                         android:text="Nombre Disco"
                         android:gravity="center_vertical"
                         android:paddingLeft="16dp"
-                        android:textColor="@color/colorPrimaryDark"/>
+                        android:textColor="@color/colorPrimaryDark"
+                        android:id="@+id/tSemana2"/>
                     <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
                         android:id="@+id/rating_bar_1"
@@ -112,8 +120,7 @@
                         android:layout_height="wrap_content"
 
                         android:gravity="center_vertical"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginLeft="16dp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -127,7 +134,10 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:layout_margin="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@color/white"
                     android:elevation="5dp">
                     <ImageView
@@ -142,7 +152,8 @@
                         android:text="Nombre Disco"
                         android:gravity="center_vertical"
                         android:paddingLeft="16dp"
-                        android:textColor="@color/colorPrimaryDark"/>
+                        android:textColor="@color/colorPrimaryDark"
+                        android:id="@+id/tSemana3"/>
                     <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
                         android:id="@+id/rating_bar_2"
@@ -153,8 +164,7 @@
                         android:layout_height="wrap_content"
 
                         android:gravity="center_vertical"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginLeft="16dp"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -162,7 +172,10 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:layout_margin="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@color/white"
                     android:elevation="5dp">
                     <ImageView
@@ -177,7 +190,8 @@
                         android:text="Nombre Disco"
                         android:gravity="center_vertical"
                         android:paddingLeft="16dp"
-                        android:textColor="@color/colorPrimaryDark"/>
+                        android:textColor="@color/colorPrimaryDark"
+                        android:id="@+id/tSemana4"/>
                     <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
                         android:id="@+id/rating_bar_3"
@@ -186,10 +200,8 @@
                         android:numStars="5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        android:gravity="center_vertical"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="5dp"/>
 
                 </LinearLayout>
 

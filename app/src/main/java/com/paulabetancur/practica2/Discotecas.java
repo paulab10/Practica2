@@ -22,6 +22,25 @@ public class Discotecas
     private String price;
     private String music;
     private String tel;
+    private float rating;
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public Discotecas(String image, String name, String dir, String price, String music, String tel, float rating) {
+        this.image = image;
+        this.name = name;
+        this.dir = dir;
+        this.price = price;
+        this.music = music;
+        this.tel = tel;
+        this.rating = rating;
+    }
 
     public Discotecas(String image, String name, String dir, String tel, String music, String price)
     {
