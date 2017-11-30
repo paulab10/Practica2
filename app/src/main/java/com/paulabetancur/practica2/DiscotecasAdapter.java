@@ -72,7 +72,7 @@ public class DiscotecasAdapter extends RecyclerView.Adapter<DiscotecasAdapter.Si
                 }
             }
         });
-        fetchImage.execute(items.get(i).getImage());
+        fetchImage.execute(items.get(i).getImageURL());
     }
 
 }

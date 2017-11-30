@@ -1,5 +1,6 @@
 package com.paulabetancur.practica2.Fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
@@ -15,6 +16,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.paulabetancur.practica2.Discotecas;
 import com.paulabetancur.practica2.DiscotecasListAdapter;
+import com.paulabetancur.practica2.FetchImage;
 import com.paulabetancur.practica2.R;
 
 import java.util.ArrayList;
@@ -27,6 +29,7 @@ public class DiscotecasListFragment extends ListFragment {
     FirebaseDatabase database;
     DatabaseReference DBReference;
     ArrayList<Discotecas> list = new ArrayList<>();
+    int listCounter = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,13 +57,32 @@ public class DiscotecasListFragment extends ListFragment {
 
             }
 
-            DiscotecasListAdapter adapter = new DiscotecasListAdapter(getContext(), list);
-            setListAdapter(adapter);
+            FetchImage fetchImage = new FetchImage(getContext(), fetchListener);
+            fetchImage.execute(list.get(listCounter).getImageURL());
+            listCounter++;
+            //DiscotecasListAdapter adapter = new DiscotecasListAdapter(getContext(), list);
+            //setListAdapter(adapter);
         }
 
         @Override
         public void onCancelled(DatabaseError databaseError) {
 
+        }
+    };
+
+    private FetchImage.AsyncResponse fetchListener = new FetchImage.AsyncResponse() {
+        @Override
+        public void processFinish(Bitmap bitmap) {
+            list.get(listCounter).setImage(bitmap);
+            listCounter++;
+            if (listCounter < list.size()){
+                FetchImage fetchImage = new FetchImage(getContext(), fetchListener);
+                fetchImage.execute(list.get(listCounter).getImageURL());
+
+            }else {         // Set adapter
+                DiscotecasListAdapter adapter = new DiscotecasListAdapter(getContext(), list);
+                setListAdapter(adapter);
+            }
         }
     };
 }

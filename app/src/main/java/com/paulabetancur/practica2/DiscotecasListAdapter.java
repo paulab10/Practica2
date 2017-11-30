@@ -49,6 +49,14 @@ public class DiscotecasListAdapter extends ArrayAdapter<Discotecas> {
         tel.setText(itemDiscotecas.getTel());
         music.setText(itemDiscotecas.getMusic());
         price.setText(itemDiscotecas.getPrice());
+        if (itemDiscotecas.getImage() != null) {
+            Bitmap bitmap = itemDiscotecas.getImage();
+            Resources res = getContext().getResources();
+            RoundedBitmapDrawable roundBitmap = RoundedBitmapDrawableFactory
+                    .create(res, bitmap);
+            roundBitmap.setCornerRadius(Math.max(bitmap.getWidth(), bitmap.getHeight()) / 2.0f);
+            image.setImageDrawable(roundBitmap);
+        }
         /*FetchImage fetchImage = new FetchImage(getContext(), new FetchImage.AsyncResponse() {
             @Override
             public void processFinish(Bitmap bitmap) {

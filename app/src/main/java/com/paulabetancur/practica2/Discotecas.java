@@ -1,28 +1,26 @@
 package com.paulabetancur.practica2;
 
-import android.content.res.Resources;
+
 import android.graphics.Bitmap;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.util.List;
-
 
 public class Discotecas
 {
-    private String image;
+    private String imageURL;
     private String name;
     private String dir;
     private String price;
     private String music;
     private String tel;
+    private Bitmap image;
     private float rating;
+
+    public void setImage(Bitmap image) {
+        this.image = image;
+    }
+
+    public Bitmap getImage() {
+        return image;
+    }
 
     public float getRating() {
         return rating;
@@ -32,8 +30,8 @@ public class Discotecas
         this.rating = rating;
     }
 
-    public Discotecas(String image, String name, String dir, String price, String music, String tel, float rating) {
-        this.image = image;
+    public Discotecas(String imageURL, String name, String dir, String price, String music, String tel, float rating) {
+        this.imageURL = imageURL;
         this.name = name;
         this.dir = dir;
         this.price = price;
@@ -42,10 +40,10 @@ public class Discotecas
         this.rating = rating;
     }
 
-    public Discotecas(String image, String name, String dir, String tel, String music, String price)
+    public Discotecas(String imageURL, String name, String dir, String tel, String music, String price)
     {
         this.name = name;
-        this.image = image;
+        this.imageURL = imageURL;
         this.music = music;
         this.dir = dir;
         this.price = price;
@@ -53,8 +51,8 @@ public class Discotecas
 
     }
 
-    public String getImage() {
-        return image;
+    public String getImageURL() {
+        return imageURL;
     }
 
     public String getName() {
