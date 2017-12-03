@@ -52,8 +52,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".InfoActivity"
-            android:theme="@style/MyDialogTheme"/>
+        <activity
+            android:name=".InfoActivity"
+            android:theme="@style/MyDialogTheme" />
+        <activity android:name=".DiscoProfileActivity"></activity>
     </application>
 
 </manifest>
