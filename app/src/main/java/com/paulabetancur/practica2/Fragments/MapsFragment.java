@@ -39,7 +39,7 @@ public class MapsFragment extends Fragment {
 
         fm = getFragmentManager();
         ft = fm.beginTransaction();
-        ListaFragment fragment = new ListaFragment();
+        MapFragment fragment = new MapFragment();
         ft.add(R.id.content, fragment).commit();
 
         BottomNavigationView navigation = (BottomNavigationView) view.findViewById(R.id.navigation);

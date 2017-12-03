@@ -68,6 +68,7 @@ public class PerfilFragment extends Fragment {
                             .create(res, bitmap);
                     roundBitmap.setCornerRadius(Math.max(bitmap.getWidth(), bitmap.getHeight()) / 2.0f);
                     imgProfile.setImageDrawable(roundBitmap);
+
                 }
             }
         });

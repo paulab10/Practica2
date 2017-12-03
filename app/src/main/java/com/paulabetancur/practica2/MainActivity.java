@@ -48,7 +48,8 @@ public class MainActivity extends DrawerActivity {
         getSupportActionBar().setTitle("Inicio");
 
         if (findViewById(R.id.containerView) != null){
-            Fragment fragment = new Tab2Fragment();
+            //Fragment fragment = new Tab2Fragment();
+            Fragment fragment = new BlankFragment();
 
             getSupportFragmentManager().beginTransaction().
                     add(R.id.containerView, fragment).commit();
