@@ -27,7 +27,7 @@ public class FilterFragment extends Fragment {
     protected int posit = 1;
     SearchView search;
 
-    private Spinner Smusica, Spresupuesto, Subicacion;
+    private Spinner Smusica, Spresupuesto, Subicacion, Scover;
     Button searchButton;
 
     @Override
@@ -53,6 +53,7 @@ public class FilterFragment extends Fragment {
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(getContext(),R.array.presupuesto, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spresupuesto.setAdapter(adapter3);
+
 
 
         searchButton.setOnClickListener(new View.OnClickListener() {
