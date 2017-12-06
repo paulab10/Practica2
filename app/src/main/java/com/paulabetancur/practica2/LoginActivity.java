@@ -44,6 +44,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -56,6 +57,7 @@ import java.util.Arrays;
 public class LoginActivity extends AppCompatActivity {
 
     LoginButton loginButton;
+    TextView tRegistre;
     SignInButton signInButton;
     CallbackManager callbackManager;
     FirebaseAuth mAuth;
@@ -94,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) findViewById(R.id.login_button);
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-
+        tRegistre = (TextView) findViewById(R.id.tRegistrese);
 
         //Login con google
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
