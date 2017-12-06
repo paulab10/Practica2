@@ -15,13 +15,14 @@
         android:textSize="25sp"
         android:text="eeeee"
         android:id="@+id/dname"
-        android:textColor="@color/black"
-        android:layout_gravity="center"/>
+        android:textColor="@color/moradopro"
+        android:layout_gravity="center" />
 
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -49,6 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
+                    android:layout_marginLeft="15dp"
                     android:textSize="17sp" />
 
             </LinearLayout>
@@ -64,6 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
+                    android:layout_marginLeft="15dp"
                     android:textSize="17sp" />
             </LinearLayout>
 
@@ -77,6 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
+                    android:layout_marginLeft="15dp"
                     android:textSize="17sp" />
             </LinearLayout>
 
@@ -86,18 +90,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Presupuesto: "
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
-
-                <TextView
                     android:id="@+id/tprice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:layout_marginLeft="15dp"
+                    android:textSize="17sp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -110,9 +108,11 @@
                     android:layout_height="wrap_content"
                     android:text="Ver más"
                     android:layout_marginLeft="80dp"
+                    android:layout_marginTop="10dp"
                     android:textColor="@color/com_facebook_blue"
                     android:textSize="16sp" />
             </LinearLayout>
+
 
         </LinearLayout>
 

@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.paulabetancur.practica2.Fragments.BlankFragment;
 import com.paulabetancur.practica2.Fragments.MapsFragment;
 import com.paulabetancur.practica2.Fragments.PerfilFragment;
 import com.paulabetancur.practica2.Fragments.Tab2Fragment;
@@ -53,7 +54,8 @@ public class DrawerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Tab2Fragment fragment  = new Tab2Fragment();
+        //Acá estaba Tab2Fragment
+        BlankFragment fragment  = new BlankFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerView,fragment).commit();
         getSupportActionBar().setTitle("Inicio");
@@ -188,7 +190,8 @@ public class DrawerActivity extends AppCompatActivity {
                                 fullLayout.closeDrawer(GravityCompat.START);
                                 if (!item.isChecked()) {
                                     getSupportActionBar().setTitle("Inicio");
-                                    Tab2Fragment fragment  = new Tab2Fragment();
+                                    //Acá estaba Tab2Fragment
+                                    BlankFragment fragment  = new BlankFragment();
                                     getSupportFragmentManager().beginTransaction().replace(R.id.containerView,fragment).commit();
                                     item.setChecked(true);      // Start activity after some delay
                                 }

@@ -3,7 +3,9 @@ package com.paulabetancur.practica2;
 
 import android.graphics.Bitmap;
 
-public class Discotecas
+import java.io.Serializable;
+
+public class Discotecas implements Serializable
 {
     private String imageURL;
     private String name;

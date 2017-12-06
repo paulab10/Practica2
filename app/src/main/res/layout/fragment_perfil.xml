@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.paulabetancur.practica2.Fragments.PerfilFragment">
+    tools:context="com.paulabetancur.practica2.Fragments.PerfilFragment"
+    android:layout_marginTop="?actionBarSize">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -10,46 +11,59 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_account_circle_black_48dp"
-            android:id="@+id/profileImg"
-            />
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:id="@+id/tId"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:text="Usuario"
-            android:textColor="@color/colorPrimary"/>
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:background="@color/moradopro2">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tNombre"
-            android:text="@string/correo"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="16dp"
-            />
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ic_account_circle_black_48dp"
+                android:id="@+id/profileImg"
+                />
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tNombre"
+                android:text="@string/correo"
+                android:textColor="@color/white"
+                android:textSize="21sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tContrasena"
-            android:text="@string/contraseña"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_marginLeft="16dp"
-            />
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tContrasena"
+                android:text="@string/contraseña"
+                android:textColor="@color/moradopro2"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+
+                />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

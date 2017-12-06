@@ -45,6 +45,7 @@ public class DiscotecasListActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Discotecas");
+        myRef = myRef.child("Aka 55 bar").child("Reseña");
         //var = getIntent().getIntExtra("filter",-1);
 
         myRef.addValueEventListener(new ValueEventListener() {

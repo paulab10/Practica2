@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class InfoActivity extends AppCompatActivity {
 
     TextView VerMas;
-
+    Discotecas discoteca;
 
 
     @Override
@@ -33,12 +33,14 @@ public class InfoActivity extends AppCompatActivity {
 
         VerMas = (TextView) findViewById(R.id.tvermas);
 
-        Bundle extras = getIntent().getExtras();
-        final String data = extras.getString("marker_data");
-        String []fields = data.split("\n");
-        for (int i = 0; i < 5; i++){
+        //Bundle extras = getIntent().getExtras();
+        discoteca = (Discotecas)getIntent().getSerializableExtra("marker_data");
+        //final String data = extras.getString("marker_data");
+        textFields[0].setText(discoteca.getName());
+        //String []fields = data.split("\n");
+        /*for (int i = 0; i < 5; i++){
             textFields[i].setText(fields[i]);
-        }
+        }*/
 
         FetchImage fetchImage = new FetchImage(getApplicationContext(), new FetchImage.AsyncResponse() {
             @Override
@@ -52,13 +54,13 @@ public class InfoActivity extends AppCompatActivity {
                 }
             }
         });
-        fetchImage.execute(fields[5]);
+        fetchImage.execute(discoteca.getImageURL());
 
         VerMas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InfoActivity.this, DiscoProfileActivity.class);
-                intent.putExtra("marker_data", data);
+                intent.putExtra("marker_data", discoteca);
                 startActivity(intent);
             }
         });
