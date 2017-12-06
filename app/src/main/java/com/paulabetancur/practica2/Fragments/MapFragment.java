@@ -88,7 +88,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                                 postSnapshot.child("direccion").getValue().toString(),
                                 postSnapshot.child("telefono").getValue().toString(),
                                 postSnapshot.child("musica").getValue().toString(),
-                                postSnapshot.child("presupuestok").getValue().toString()));
+                                postSnapshot.child("presupuesto").getValue().toString()));
                         LatLng marker = new LatLng(Double.parseDouble(postSnapshot.child("Lat").getValue().toString()),
                                 Double.parseDouble(postSnapshot.child("Lng").getValue().toString()));
                         MarkerOptions mark = new MarkerOptions().position(marker).title(postSnapshot.getKey()).

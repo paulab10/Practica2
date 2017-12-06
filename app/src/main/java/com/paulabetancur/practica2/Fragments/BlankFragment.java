@@ -1,12 +1,17 @@
 package com.paulabetancur.practica2.Fragments;
 
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -16,12 +21,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.paulabetancur.practica2.Discotecas;
+import com.paulabetancur.practica2.FetchImage;
 import com.paulabetancur.practica2.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +40,7 @@ public class BlankFragment extends Fragment {
     private ArrayList<Discotecas> list = new ArrayList<>();
     private TextView[] tNombre = new TextView[4];
     private RatingBar[] discoRatingBar = new RatingBar[4];
+    private ImageView iprimera, isegunda, itercera,icuarta;
 
     public BlankFragment() {
         // Required empty public constructor
@@ -51,6 +60,10 @@ public class BlankFragment extends Fragment {
         tNombre[1] = (TextView) view.findViewById(R.id.tSemana2);
         tNombre[2] = (TextView) view.findViewById(R.id.tSemana3);
         tNombre[3] = (TextView) view.findViewById(R.id.tSemana4);
+        iprimera = (ImageView) view.findViewById(R.id.iPrimera);
+        isegunda = (ImageView) view.findViewById(R.id.iSegunda);
+        itercera = (ImageView) view.findViewById(R.id.iTercera);
+        icuarta = (ImageView) view.findViewById(R.id.iCuarta);
         return view;
     }
 
@@ -74,6 +87,19 @@ public class BlankFragment extends Fragment {
                                 postSnapshot.child("presupuesto").getValue().toString(),
                                         (float)5)
                                 );
+                        FetchImage fetchImage = new FetchImage(getApplicationContext(), new FetchImage.AsyncResponse() {
+                            @Override
+                            public void processFinish(Bitmap bitmap) {
+                                if (bitmap != null) {
+                                    Resources res = getApplicationContext().getResources();
+                                    RoundedBitmapDrawable roundBitmap = RoundedBitmapDrawableFactory
+                                            .create(res, bitmap);
+
+                                    iprimera.setImageDrawable(roundBitmap);
+                                }
+                            }
+                        });
+                        fetchImage.execute(postSnapshot.child("URL").getValue().toString());
 
 
                     }
@@ -84,6 +110,19 @@ public class BlankFragment extends Fragment {
                                 postSnapshot.child("musica").getValue().toString(),
                                 postSnapshot.child("presupuesto").getValue().toString(),
                                 (float)3.5));
+                        FetchImage fetchImage = new FetchImage(getApplicationContext(), new FetchImage.AsyncResponse() {
+                            @Override
+                            public void processFinish(Bitmap bitmap) {
+                                if (bitmap != null) {
+                                    Resources res = getApplicationContext().getResources();
+                                    RoundedBitmapDrawable roundBitmap = RoundedBitmapDrawableFactory
+                                            .create(res, bitmap);
+
+                                    isegunda.setImageDrawable(roundBitmap);
+                                }
+                            }
+                        });
+                        fetchImage.execute(postSnapshot.child("URL").getValue().toString());
 
 
                     }
@@ -94,6 +133,19 @@ public class BlankFragment extends Fragment {
                                 postSnapshot.child("musica").getValue().toString(),
                                 postSnapshot.child("presupuesto").getValue().toString(),
                                 (float)4));
+                        FetchImage fetchImage = new FetchImage(getApplicationContext(), new FetchImage.AsyncResponse() {
+                            @Override
+                            public void processFinish(Bitmap bitmap) {
+                                if (bitmap != null) {
+                                    Resources res = getApplicationContext().getResources();
+                                    RoundedBitmapDrawable roundBitmap = RoundedBitmapDrawableFactory
+                                            .create(res, bitmap);
+
+                                    itercera.setImageDrawable(roundBitmap);
+                                }
+                            }
+                        });
+                        fetchImage.execute(postSnapshot.child("URL").getValue().toString());
 
 
                     }
@@ -104,6 +156,19 @@ public class BlankFragment extends Fragment {
                                 postSnapshot.child("musica").getValue().toString(),
                                 postSnapshot.child("presupuesto").getValue().toString(),
                                 (float)3));
+                        FetchImage fetchImage = new FetchImage(getApplicationContext(), new FetchImage.AsyncResponse() {
+                            @Override
+                            public void processFinish(Bitmap bitmap) {
+                                if (bitmap != null) {
+                                    Resources res = getApplicationContext().getResources();
+                                    RoundedBitmapDrawable roundBitmap = RoundedBitmapDrawableFactory
+                                            .create(res, bitmap);
+
+                                    icuarta.setImageDrawable(roundBitmap);
+                                }
+                            }
+                        });
+                        fetchImage.execute(postSnapshot.child("URL").getValue().toString());
 
 
                     }

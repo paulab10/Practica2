@@ -1,5 +1,9 @@
 package com.paulabetancur.practica2;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -14,6 +18,7 @@ public class DiscoProfileActivity extends AppCompatActivity {
     RatingBar rEstrellas;
     ImageView iFoto;
     TextView tDiscoDescripcion;
+    Discotecas discoteca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,20 +30,36 @@ public class DiscoProfileActivity extends AppCompatActivity {
         iFoto = (ImageView) findViewById(R.id.iFotodisco);
         tDiscoDescripcion = (TextView) findViewById(R.id.tDescripcion);
 
+        discoteca = (Discotecas)getIntent().getSerializableExtra("marker_data");
+
+        tInfo.setText(discoteca.getName()+"\n"+discoteca.getPrice());
 
 
-        final String[] textFields = new String[5];
-        final ImageView image = (ImageView) findViewById(R.id.imbar);
-
-        Bundle extras = getIntent().getExtras();
-        final String data = extras.getString("marker_data");
-        String []fields = data.split("\n");
+        //final String[] textFields = new String[5];
 
 
-        tInfo.setText(fields[0]+"\n"+fields[4]);
+        //Bundle extras = getIntent().getExtras();
+        //final String data = extras.getString("marker_data");
+        //String []fields = data.split("\n");
+
+
+        tInfo.setText(discoteca.getName()+"\n"+discoteca.getPrice());
         rEstrellas.setRating((float) 4);
+        FetchImage fetchImage = new FetchImage(getApplicationContext(), new FetchImage.AsyncResponse() {
+            @Override
+            public void processFinish(Bitmap bitmap) {
+                if (bitmap != null) {
+                    Resources res = getApplicationContext().getResources();
+                    RoundedBitmapDrawable roundBitmap = RoundedBitmapDrawableFactory
+                            .create(res, bitmap);
+                    //roundBitmap.setCornerRadius(Math.max(bitmap.getWidth(), bitmap.getHeight()) / 2.0f);
+                    iFoto.setImageDrawable(roundBitmap);
+                }
+            }
+        });
+        fetchImage.execute(discoteca.getImageURL());
 
-        tDiscoDescripcion.setText("Discoteca ubicada en la "+ fields[1] +". \nTipo de música: " + fields[3] +".\nContacto: "+fields[2]+".");
+        tDiscoDescripcion.setText("Discoteca ubicada en la "+ discoteca.getDir() +". \nTipo de música: " + discoteca.getMusic() +".\nContacto: "+ discoteca.getTel()+".");
 
 
     }

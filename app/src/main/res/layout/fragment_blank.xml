@@ -61,7 +61,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="3"
-                        android:background="@color/lightgray"/>
+                        android:background="@color/lightgray"
+                        android:id="@+id/iPrimera"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -100,6 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="3"
+                        android:id="@+id/iSegunda"
                         android:background="@color/lightgray"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -109,7 +111,8 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="16dp"
                         android:textColor="@color/colorPrimaryDark"
-                        android:id="@+id/tSemana2"/>
+                        android:id="@+id/tSemana2"
+                        />
                     <RatingBar
                         style="?android:attr/ratingBarStyleSmall"
                         android:id="@+id/rating_bar_1"
@@ -144,6 +147,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="3"
+                        android:id="@+id/iTercera"
                         android:background="@color/lightgray"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -182,6 +186,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="3"
+                        android:id="@+id/iCuarta"
                         android:background="@color/lightgray"/>
                     <TextView
                         android:layout_width="match_parent"

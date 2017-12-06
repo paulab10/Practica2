@@ -11,7 +11,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class InfoActivity extends AppCompatActivity {
+
 
     TextView VerMas;
     Discotecas discoteca;
@@ -37,6 +40,10 @@ public class InfoActivity extends AppCompatActivity {
         discoteca = (Discotecas)getIntent().getSerializableExtra("marker_data");
         //final String data = extras.getString("marker_data");
         textFields[0].setText(discoteca.getName());
+        textFields[1].setText(discoteca.getDir());
+        textFields[2].setText(discoteca.getTel());
+        textFields[3].setText(discoteca.getMusic());
+        textFields[4].setText(discoteca.getPrice());
         //String []fields = data.split("\n");
         /*for (int i = 0; i < 5; i++){
             textFields[i].setText(fields[i]);
@@ -62,6 +69,7 @@ public class InfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(InfoActivity.this, DiscoProfileActivity.class);
                 intent.putExtra("marker_data", discoteca);
                 startActivity(intent);
+
             }
         });
     }
